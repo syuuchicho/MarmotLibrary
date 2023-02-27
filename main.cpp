@@ -40,7 +40,6 @@ int main()
 		{
 			for (int k = 0; k < 2; k++)
 			{
-
 				printf("%d,z:%d,y:%d,x:%d\n", array[i][j][k], i, j, k);
 			}
 		}
