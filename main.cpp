@@ -11,21 +11,25 @@ int main()
 	int array[z][y][x] =
 	{
 		{
-			{1,1},{1,1}//z=0
+			{1,1},
+			{1,1}//z=0
 		},
 
 		{
-			{0,0},{0,0}//z=1
+			{0,0},
+			{0,0}//z=1
 		}
 	};
 
 	int arrayBox[z][y][x] =
 	{
 		{
-			{3,3},{3,3}//z=0
+			{3,3},
+			{3,3}//z=0
 		},
 		{
-			{3,3},{3,3}//z=1
+			{3,3},
+			{3,3}//z=1
 		}
 	};
 
@@ -43,28 +47,18 @@ int main()
 
 	}
 
-
-
-
-
+	//入れ替えるマップチップのNo(引数)を取得,例えば引数aとb
+	int a = 0;
+	int b = 1;
+	//マップチップの入れ替え
 	for (int j = 0; j < 2; j++)
 	{
 		for (int k = 0; k < 2; k++)
 		{
-			//マップチップを一時保存	マウスクリックした/してない方
-			//arrayBox[0][j][k]=array[1][j][k];3,3,3,3,0,0,0,0,
-			arrayBox[0][j][k] = array[1][j][k];
-			//マウスでクリックした/してない方とマップチップを変更
-			//array[1][j][k]=array[0][j][k];1,1,1,1,1,1,1,1
-			array[1][j][k] = array[0][j][k];
-			//
-			//array[0][j][k]=arrayBox[0][j][k];0,0,0,0,1,1,1,1
-			array[0][j][k] = arrayBox[0][j][k];
-
-			//printf("%d,z:%d,y:%d,x:%d\n", array[i][j][k], i, j, k);
+			arrayBox[a][j][k] = array[b][j][k];
+			arrayBox[b][j][k] = array[a][j][k];
 		}
 	}
-
 
 	printf("入れ替えた後\n");
 	for (int i = 0; i < 2; i++)
@@ -73,6 +67,7 @@ int main()
 		{
 			for (int k = 0; k < 2; k++)
 			{
+				array[i][j][k] = arrayBox[i][j][k];
 				printf("%d,z:%d,y:%d,x:%d\n", array[i][j][k], i, j, k);
 			}
 		}
